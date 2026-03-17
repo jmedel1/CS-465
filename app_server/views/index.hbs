@@ -82,6 +82,17 @@
 						</div>
 					</div>
 				</div>
+				<h2>Available Trips</h2>
+<ul>
+{{#each trips}}
+  <li>
+    <strong>{{this.name}}</strong><br>
+    Length: {{this.length}}<br>
+    Resort: {{this.resort}}<br>
+    Price: {{this.price}}
+  </li>
+{{/each}}
+</ul>
 				<div id="sidebar">
 					<div class="section">
 						<a href="rooms.html"><img src="images/rooms.png" alt="Img"></a>
@@ -102,7 +113,7 @@
 						<a href="index.html">Home</a>
 					</li>
 					<li>
-						<a href="travel.html">Travel</a>
+						<a href="/travel">Travel</a>
 					</li>
 					<li>
 						<a href="rooms.html">Rooms</a>
