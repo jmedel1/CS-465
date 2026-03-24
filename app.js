@@ -3,6 +3,8 @@ const path = require('path');
 const hbs = require('hbs');
 const travelerRoutes = require('./app_server/routes');
 
+require('./app_server/models/db');
+
 const app = express();
 const PORT = 3000;
 
