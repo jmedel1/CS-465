@@ -2,8 +2,9 @@ const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
 const travelerRoutes = require('./app_server/routes');
+const apiRouter = require('./app_api/routes');
 
-require('./app_server/models/db');
+require('./app_api/models/db');
 
 const app = express();
 const PORT = 3000;
@@ -18,6 +19,7 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', travelerRoutes);
+app.use('/api', apiRouter);
 
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
