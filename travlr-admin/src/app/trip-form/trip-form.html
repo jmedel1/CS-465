@@ -1,0 +1,13 @@
+<h2>{{ isEditMode ? 'Edit Trip' : 'Add Trip' }}</h2>
+
+<form (ngSubmit)="onSubmit()">
+  <p><input type="text" [(ngModel)]="trip.code" name="code" placeholder="Code"></p>
+  <p><input type="text" [(ngModel)]="trip.name" name="name" placeholder="Name"></p>
+  <p><input type="text" [(ngModel)]="trip.length" name="length" placeholder="Length"></p>
+  <p><input type="date" [(ngModel)]="trip.start" name="start"></p>
+  <p><input type="text" [(ngModel)]="trip.resort" name="resort" placeholder="Resort"></p>
+  <p><input type="text" [(ngModel)]="trip.perPerson" name="perPerson" placeholder="Price"></p>
+  <p><input type="text" [(ngModel)]="trip.image" name="image" placeholder="Image filename"></p>
+  <p><textarea [(ngModel)]="trip.description" name="description" placeholder="Description"></textarea></p>
+  <p><button type="submit">{{ isEditMode ? 'Update Trip' : 'Add Trip' }}</button></p>
+</form>

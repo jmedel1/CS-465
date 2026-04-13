@@ -1,0 +1,9 @@
+<h2>Trips</h2>
+
+<div *ngFor="let trip of trips" class="trip-card">
+  <p><strong>{{ trip.name }}</strong></p>
+  <p>Length: {{ trip.length }}</p>
+  <p>Resort: {{ trip.resort }}</p>
+  <p>Price: {{ trip.perPerson }}</p>
+  <button (click)="editTrip(trip)">Edit</button>
+</div>

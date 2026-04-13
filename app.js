@@ -3,11 +3,15 @@ const path = require('path');
 const hbs = require('hbs');
 const travelerRoutes = require('./app_server/routes');
 const apiRouter = require('./app_api/routes');
+const cors = require('cors');
 
 require('./app_api/models/db');
 
 const app = express();
 const PORT = 3000;
+
+app.use(cors());
+app.use(express.json());
 
 // Set views folder
 app.set('views', path.join(__dirname, 'app_server', 'views'));

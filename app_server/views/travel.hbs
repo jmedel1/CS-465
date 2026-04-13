@@ -34,23 +34,39 @@
             
             <h1>Travel</h1>
 
-            <ul id="sites">
-  {{#each trips}}
-    <li>
-      <a href="/travel">
-        <img src="/images/{{this.image}}" alt="{{this.name}}">
-      </a>
+            <ul id="sites"></ul>
 
-      <h2>{{this.name}}</h2>
+<script>
+  fetch('/api/trips')
+    .then(response => response.json())
+    .then(trips => {
+      const tripList = document.getElementById('sites');
+      tripList.innerHTML = '';
 
-      <p><strong>Length:</strong> {{this.length}}</p>
-      <p><strong>Resort:</strong> {{this.resort}}</p>
-      <p><strong>PerPerson:</strong> {{this.perPerson}}</p>
+      trips.forEach(trip => {
+        const li = document.createElement('li');
 
-      {{{this.description}}}
-    </li>
-  {{/each}}
-</ul>
+        li.innerHTML = `
+          <a href="/travel">
+            <img src="/images/${trip.image}" alt="${trip.name}">
+          </a>
+
+          <h2>${trip.name}</h2>
+
+          <p><strong>Length:</strong> ${trip.length}</p>
+          <p><strong>Resort:</strong> ${trip.resort}</p>
+          <p><strong>Per Person:</strong> ${trip.perPerson}</p>
+
+          ${trip.description}
+        `;
+
+        tripList.appendChild(li);
+      });
+    })
+    .catch(error => {
+      console.error('Error loading trips:', error);
+    });
+</script>
 
           </div>
         </div>

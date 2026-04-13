@@ -11,8 +11,7 @@ const renderHomePage = (req, res) => {
 // Travel Page
 const renderTravelPage = (req, res) => {
   res.render('travel', {
-    title: 'Travel',
-    trips: trips
+    title: 'Travel'
   });
 };
 
