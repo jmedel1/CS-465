@@ -1,2 +1,8 @@
-<app-trip-form [selectedTrip]="selectedTrip"></app-trip-form>
-<app-trip-list (editTripEvent)="onEditTrip($event)"></app-trip-list>
+<app-login *ngIf="!authService.isLoggedIn()"></app-login>
+
+<div *ngIf="authService.isLoggedIn()">
+  <button (click)="logout()">Logout</button>
+
+  <app-trip-form></app-trip-form>
+  <app-trip-list></app-trip-list>
+</div>

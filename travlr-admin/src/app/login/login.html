@@ -1,0 +1,25 @@
+<h2>Admin Login</h2>
+
+<form (ngSubmit)="onSubmit()">
+  <p>
+    <input
+      type="email"
+      [(ngModel)]="credentials.email"
+      name="email"
+      placeholder="Email"
+    />
+  </p>
+
+  <p>
+    <input
+      type="password"
+      [(ngModel)]="credentials.password"
+      name="password"
+      placeholder="Password"
+    />
+  </p>
+
+  <p>
+    <button type="submit">Login</button>
+  </p>
+</form>
